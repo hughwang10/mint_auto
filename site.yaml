@@ -16,6 +16,7 @@
         - alias ll="ls -ltrh --color=auto"
         - alias vi="vim"
         - alias clean="sed --in-place 's/[[:space:]]\+$//' $1"
+      tags: prep
 
     - name: create .gitconfig
       lineinfile:
@@ -30,6 +31,7 @@
         - '[user]'
         - email = hughwang10@gmail.com
         - name = hughwang10
+      tags: prep
 
     - name: Update common packages
       become: yes
@@ -46,5 +48,26 @@
           - gcc
           - libssl-dev
           - python-selinux
+          - lsb-core
+          - chromium-browser
+          - sublime-text
         update_cache: yes
-      tags: update
+      tags: prep
+
+    - name: pip2 install
+      become: yes
+      pip:
+        name:
+          - pip
+          - setuptools
+          - wheel
+          - netaddr
+          - pyVmomi
+          - pysphere
+          - shade
+          - python-openstackclient
+          - python-glanceclient
+          - python-neutronclient
+        executable: pip2
+        state: latest
+      tags: prep
