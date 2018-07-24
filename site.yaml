@@ -33,6 +33,16 @@
         - name = hughwang10
       tags: prep
 
+    - name: dist upgrade
+      become: yes
+      apt:
+        upgrade: dist
+        autoclean: yes
+        autoremove: yes
+        purge: yes
+        update_cache: yes
+      tags: prep
+
     - name: Update common packages
       become: yes
       apt:
@@ -51,6 +61,7 @@
           - lsb-core
           - chromium-browser
           - sublime-text
+          - dropbox
         update_cache: yes
       tags: prep
 
@@ -70,4 +81,31 @@
           - python-neutronclient
         executable: pip2
         state: latest
+      tags: prep
+
+    - name: Creates /etc/ansible
+      become: yes
+      file:
+        path: /etc/ansible
+        state: directory
+        mode: 0755
+      tags: prep
+
+    - name: Download ansible.cfg
+      become: yes
+      get_url:
+        url: https://raw.githubusercontent.com/ansible/ansible/devel/examples/ansible.cfg
+        dest: /etc/ansible/ansible.cfg
+        mode: 0644
+      tags: prep
+
+    - name: update ansible.cfg
+      become: yes
+      lineinfile:
+        dest: /etc/ansible/ansible.cfg
+        line: "{{ item }}"
+      with_items:
+        - host_key_checking = False
+        - pipelining = False
+        - forks = 100
       tags: prep
