@@ -113,4 +113,5 @@
         - { regexp: '^#roles_path.*', line: 'roles_path = /home/hugh/Dropbox/myansible/roles' }
         - { regexp: '^#inventory.*', line: 'inventory = /home/hugh/Dropbox/ansible/config/hosts' }
         - { regexp: '^#library.*', line: 'library  = /home/hugh/Dropbox/myansible/library' }
+        - { regexp: '^#retry_files_enabled.*', line: 'retry_files_enabled = False' }
       tags: prep1
