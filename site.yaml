@@ -15,4 +15,4 @@
       with_items:
         - alias ll="ls -ltrh --color=auto"
         - alias vi="vim"
-        - alias clean="sed --in-place 's/[[:space:]]\+$//' $1"  
+        - alias clean="sed --in-place 's/[[:space:]]\+$//' $1"
