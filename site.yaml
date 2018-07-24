@@ -1,0 +1,18 @@
+---
+- name: mint_auto
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  vars:
+
+  tasks:
+    - name: create .bash_aliases
+      lineinfile:
+        path: /home/hugh/.bash_aliases
+        line: "{{item}}"
+        create: yes
+      with_items:
+        - alias ll="ls -ltrh --color=auto"
+        - alias vi="vim"
+        - alias clean="sed --in-place 's/[[:space:]]\+$//' $1"  
