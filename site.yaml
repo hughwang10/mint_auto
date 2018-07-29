@@ -49,6 +49,7 @@
         name:
           - vim
           - tree
+          - sshpass
           - python-pip
           - docker.io
           - docker-compose
