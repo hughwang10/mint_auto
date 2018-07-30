@@ -50,6 +50,7 @@
           - vim
           - tree
           - sshpass
+          - ipcalc
           - python-pip
           - docker.io
           - docker-compose
