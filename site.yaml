@@ -65,6 +65,7 @@
           - sublime-text
           - dropbox
           - meld
+          - snmp
         update_cache: yes
       tags: prep
 
