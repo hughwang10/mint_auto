@@ -82,6 +82,7 @@
           - python-openstackclient
           - python-glanceclient
           - python-neutronclient
+          - pysnmp
         executable: pip2
         state: latest
       tags: prep
