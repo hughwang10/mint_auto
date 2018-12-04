@@ -66,6 +66,7 @@
           - dropbox
           - meld
           - snmp
+          - genisoimage
         update_cache: yes
       tags: prep
 
