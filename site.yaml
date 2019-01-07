@@ -75,7 +75,7 @@
       pip:
         name:
           - pip
-          - setuptools
+          # - setuptools
           - wheel
           - netaddr
           - pyVmomi
